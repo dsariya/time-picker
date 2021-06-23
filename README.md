@@ -85,6 +85,7 @@ API
 | hourStep                | Number                            | 1 | interval between hours in picker  |
 | minuteStep              | Number                            | 1 | interval between minutes in picker  |
 | secondStep              | Number                            | 1 | interval between seconds in picker  |
+| includeEndOfDay         | Boolean                           | false | Include :59 as an option if the minuteStep is greater than 1  |
 | focusOnOpen             | Boolean                           | false | automatically focus the input when the picker opens |
 | inputReadOnly             | Boolean                           | false | set input to read only |
 | inputIcon             | ReactNode                           |  | specific the time-picker icon. |

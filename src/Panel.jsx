@@ -121,6 +121,7 @@ class Panel extends Component {
       secondStep,
       inputReadOnly,
       clearIcon,
+      includeEndOfDay
     } = this.props;
     const { value, currentSelectPanel } = this.state;
     const disabledHourOptions = this.disabledHours();
@@ -193,6 +194,8 @@ class Panel extends Component {
           use12Hours={use12Hours}
           onEsc={onEsc}
           isAM={this.isAM()}
+          includeEndOfDay={includeEndOfDay}
+          minuteStep={minuteStep}
         />
         {addon(this)}
       </div>

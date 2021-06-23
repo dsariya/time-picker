@@ -23,6 +23,8 @@ const App = () => (
     format={format}
     use12Hours
     inputReadOnly
+    minuteStep={15}
+    includeEndOfDay={true}
   />
 );
 

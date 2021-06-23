@@ -99,18 +99,31 @@ class Combobox extends Component {
   getMinuteSelect(minute) {
     const {
       prefixCls,
-      minuteOptions,
       disabledMinutes,
       defaultOpenValue,
       showMinute,
       value: propValue,
       onEsc,
+      includeEndOfDay,
+      minuteStep,
     } = this.props;
+
+    let { minuteOptions } = this.props;
+
     if (!showMinute) {
       return null;
     }
     const value = propValue || defaultOpenValue;
     const disabledOptions = disabledMinutes(value.hour());
+
+    // if we're on the last hour of the day
+    if (includeEndOfDay && value.isBetween(value.clone().endOf('day').subtract(1, 'hours'), value.clone().endOf('day'))) {
+      // and we're stepping past minutes
+      if (minuteStep > 1) {
+        // we should also include ":59" as an option
+        minuteOptions.push(59);
+      }
+    }
 
     return (
       <Select
